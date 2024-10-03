@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: PhD student at <a href='https://www.imperial.ac.uk/'>Imperial</a> in the <a href='https://www.imperial.ac.uk/adaptive-intelligent-robotics'>Adaptive & Intelligent Robotics Lab.
 
