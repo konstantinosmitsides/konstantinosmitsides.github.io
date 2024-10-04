@@ -4,5 +4,5 @@ permalink: /cv/
 title: CV
 nav: true
 nav_order: 3
-cv_pdf: Maxence_Faldor_CV.pdf
+cv_pdf: put_your_cv.pdf
 ---
