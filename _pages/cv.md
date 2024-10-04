@@ -4,5 +4,5 @@ permalink: /cv/
 title: CV
 nav: true
 nav_order: 3
-cv_pdf: put_your_cv.pdf
+cv_pdf: CV_PhD.pdf
 ---
