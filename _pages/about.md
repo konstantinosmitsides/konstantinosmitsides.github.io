@@ -18,7 +18,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I recently completed an MSc in **Artificial Intelligence** at Imperial College London. I am now beginning a PhD program in the Department of Computing at Imperial, with funding from the same department. My research will focus on **Deep Reinforcement Learning** and **Evolutionary Algorithms**, under the supervision of [Dr Antoine Cully](https://www.imperial.ac.uk/people/a.cully).
+I recently completed an MSc in **Artificial Intelligence** at Imperial College London. I am now beginning a PhD program in the Department of Computing at Imperial, which is being funded by the department. My research will focus on **Deep Reinforcement Learning** and **Evolutionary Algorithms**, under the supervision of [Dr Antoine Cully](https://www.imperial.ac.uk/people/a.cully).
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
