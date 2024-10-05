@@ -1,26 +1,14 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title: Monte Carlo Policy Gradient based MAP-Elites
+description: Final individual project in MSc AI at Imperial.
+img: assets/img/rl_emitter_3.png
 importance: 1
 category: work
 related_publications: true
 ---
-
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
+# Introduction
+This work explores the integration of Monte Carlo Policy Gradient (MCPG) methods with MAP- Elites to enhance Quality-Diversity (QD) optimisation, a family of evolutionary algorithms designed to produce a diverse set of high-performing solutions. Traditional QD optimisation, such as MAP-Elites, is driven by Genetic Algorithms and often struggles to evolve neural networks with numerous parameters and is inefficient in navigating the search space of the optimisation problem. Additionally, actor-critic based QD algorithms, like PGA-MAP-Elites and DCG-MAP- Elites-AI, while capable of handling more complex models efficiently, suffer from slow execution times and are heavily dependent on the effectiveness of the actor-critic training, which compromises scalability. Addressing these challenges, this work introduces the Monte Carlo Policy Gradient MAP-Elites (MCPG-ME) algorithm, which utilises MCPG in an off-policy manner. This novel approach allows MCPG-ME to independently optimise the solutions without relying on any actor-critic training, enhancing scalability, runtime efficiency while maintaining competitive sample efficiency. Evaluations across various continuous control locomotion tasks demonstrate that MCPG-ME excels in finding a diverse set of solutions, achieving equal or higher diversity score (coverage) than all competitors in all tasks. Additionally, it surpass the performance of the state-of-the-art algorithm, DCG-MAP-Elites-AI, in some of the tasks and consistently outperform all the other baselines in most of the tasks. Furthermore, MCPG-ME achieves high execution speeds, operating significantly faster than the actor-critic based QD algorithms, in some cases running up to nine times faster. Lastly, it demonstrates promising scalability capabilities when subjected to massive parallelisation.
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
