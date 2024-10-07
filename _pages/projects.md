@@ -2,10 +2,10 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: AI Research & Software Engineering Projects
 nav: true
 nav_order: 2
-display_categories: [work, fun]
+display_categories: [AI Research, ML Software Engineering]
 horizontal: false
 ---
 
