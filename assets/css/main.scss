@@ -24,3 +24,17 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-outline.scss"
 ;
 
+
+
+.title-container {
+  display: flex;
+  align-items: center; /* Vertically centers the image and text */
+  justify-content: center; /* Centers the entire container horizontally */
+  gap: 15px; /* Adds space between the image and the text */
+}
+
+.title-image {
+  width: 50px;  /* Adjust size of the image */
+  height: auto; /* Keep the aspect ratio */
+}
+

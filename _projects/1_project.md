@@ -1,12 +1,14 @@
 ---
 layout: page
-title: Monte Carlo Policy Gradient based MAP-Elites
-description: Final individual project in MSc AI at Imperial. Please see the full <a href='/assets/pdf/thesis_report_msc.pdf'><strong>report</strong></a> for a complete understanding of this project. 
+title: MCPG-ME
+description: "Monte Carlo Policy Gradient MAP-Elites: A synergy between Deep Reinforcement Learning and Quality Diversity Algorithms." 
 img: assets/img/rl_emitter_3.png
 importance: 1
 category: AI Research
 related_publications: true
 ---
+This is my final individual project in MSc AI at Imperial. Please see the full [report](/assets/pdf/thesis_report_msc.pdf) for a complete understanding.
+
 # Introduction
 This work explores the integration of Monte Carlo Policy Gradient (MCPG) methods with MAP-Elites to enhance Quality-Diversity (QD) optimisation, a family of evolutionary algorithms designed to produce a diverse set of high-performing solutions. Traditional QD optimisation, such as MAP-Elites, is driven by Genetic Algorithms and often struggles to evolve neural networks with numerous parameters and is inefficient in navigating the search space of the optimisation problem. Additionally, actor-critic based QD algorithms, like PGA-MAP-Elites and DCG-MAP- Elites-AI, while capable of handling more complex models efficiently, suffer from slow execution times and are heavily dependent on the effectiveness of the actor-critic training, which compromises scalability. Addressing these challenges, this work introduces the Monte Carlo Policy Gradient MAP-Elites (MCPG-ME) algorithm, which utilises MCPG in an off-policy manner. This novel approach allows MCPG-ME to independently optimise the solutions without relying on any actor-critic training, enhancing **scalability**, **runtime efficiency** while maintaining **competitive sample efficiency**. 
 
@@ -104,4 +106,7 @@ To achieve this goal, the Monte Carlo Policy Gradient MAP-Elites (MCPG-ME) algor
 
 For developement and technical details regarding MCPG-ME please refer to the 'Methodology' section of the [report](/assets/pdf/thesis_report_msc.pdf).
 
+
+## Author
+- Konstantinos Mitsides
 
