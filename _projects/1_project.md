@@ -52,23 +52,23 @@ MAP-Elites begins by randomly generating  $$K \in \mathbb{N}$$  genotypes and as
 ## Synergy between MAP-Elites and Deep Reinforcement Learning
 To overcome the limitations of GAs in MAP-Elites, specifically their inefficiency and inadequacy for evolving high-dimensional neural networks, significant advancements have been made by integrating Deep Reinforcement Learning (DRL) {% cite paper20 paper21 %} into the MAP-Elites framework. Specifically, traditional GA-based variation operators are enhanced with Policy Gradient (PG) {% cite paper22 paper23 %} methods. These methods, a specialised branch of DRL, are particularly effective for training large neural networks to navigate high-dimensional state spaces and manage continuous action spaces {% cite paper24 paper25 paper26 %}. Their integration into MAP-Elites leverages these capabilities, rendering the combined framework more capable of tackling complex optimisation challenges. 
 
-All the PG-based MAP-Elites algorithms discussed in this work follow the conventional MAP-Elites algortihm, where in addition to the GA-based variation operator they have a PG-based variation operator, as seen in Figure 2 (named RL emitter). Thus, in each iteration, half of the solutions are being optimised by the PG operator and the rest by the GA operator. 
+All the PG-based MAP-Elites algorithms discussed in this work follow the conventional MAP-Elites algortihm, where in addition to the GA-based variation operator they have a PG-based variation operator, as seen in Figure 2. Thus, in each iteration, half of the solutions are being optimised by the PG operator and the rest by the GA operator. 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/RL-ME.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/PG-ME.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Figure 2: The RL & MAP-Elites pipeline processes half of the solutions using the GA emitter, where they undergo random genetic variation, as outlined in step ii of Figure 1. The remaining solutions are processed by the RL emitter, where they are updated using PG methods. 
+    Figure 2: The PG & MAP-Elites pipeline processes half of the solutions using the GA emitter, where they undergo random genetic variation, as outlined in step ii of Figure 1. The remaining solutions are processed by the PG emitter, where they are updated using PG methods. 
 </div>
 
 
-Currently, the state-of-the-art QD-PG algorithms are the actor-critic based MAP-Elites algorithms, namely PGA-MAP-Elites {% cite paper27 %} and DCG-MAP-Elites-AI {% cite paper28 paper29 %}. In PGA-MAP-Elites, actor-critic training similar to the TD3 {% cite TD3 %} algorithm takes place **globally** and is **independent** of the solution optimisation occurring in the RL emitter. In each iteration, the solutions processed by the RL emitter use the trained critic from the actor-critic training to obtain more informed gradient estimates, leading to more efficient optimisation of solutions. To address the limitations of PGA-MAP-Elites, especially its shortcomings on tasks where the fitness objective directly discourages diversity in solutions, DCG-MAP-Elites-AI conditions the actor-critic training on the descriptors of the solutions. The high-level pipeline of the PG emitter in these two actor-critic based MAP-Elites algorithms is depicted in Figure 3.
+Currently, the state-of-the-art QD-PG algorithms are the actor-critic based MAP-Elites algorithms, namely PGA-MAP-Elites {% cite paper27 %} and DCG-MAP-Elites-AI {% cite paper28 paper29 %}. In PGA-MAP-Elites, actor-critic training similar to the TD3 {% cite TD3 %} algorithm takes place **globally** and is **independent** of the solution optimisation occurring in the PG emitter. In each iteration, the solutions processed by the PG emitter use the trained critic from the actor-critic training to obtain more informed gradient estimates, leading to more efficient optimisation of solutions. To address the limitations of PGA-MAP-Elites, especially its shortcomings on tasks where the fitness objective directly discourages diversity in solutions, DCG-MAP-Elites-AI conditions the actor-critic training on the descriptors of the solutions. The high-level pipeline of the PG emitter in these two actor-critic based MAP-Elites algorithms is depicted in Figure 3.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/actor-critic_training.jpeg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/actorcritic_training.jpeg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -76,16 +76,25 @@ Currently, the state-of-the-art QD-PG algorithms are the actor-critic based MAP-
 </div>
 
 # Problem
-While the state-of-the-art QD-DRL algorithms excel in sample efficiency, they have:
+While the state-of-the-art QD-PG (actor-critic MAP-Elites) algorithms excel in sample efficiency, they have:
 - **High training time:** Substantial time required for actor-critic training.
   
-- **Poor scalability:** Actor-critic training requires a sufficient number of sequential learning steps to converge and the trained critic is shared across all solutions.
+- **Poor scalability:** Actor-critic training requires a sufficient number of sequential learning steps to converge and the trained critic is shared across all solutions. For further explanation about this cause, please refer to the ‘Scalability’ subsection in the ‘Main Results’ of the ‘Experiments’ chapter in the [report](/assets/pdf/thesis_report_msc.pdf).
 
 # Goal
 The goal of this project is to synergise PG methods with MAP-Elites to develop an algorithm that combines the fast execution and scalability of MAP-Elites with the efficient optimisation capabilities of PG methods. Specifically, we aim to achieve performance comparable to actor-critic based MAP-Elites algorithms but with significantly reduced runtime. Furthermore, we intend for the algorithm to remain scalable, meaning that additional hardware resources can enhance final performance or reduce training time without compromising final performance.
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Goal.jpeg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Figure 4: Project Goal.
+</div>
+
 # Methods
-To achieve this goal, the Monte Carlo Policy Gradient MAP-Elites (MCPG-ME) algorithm is developed. This algorithm removes the global actor-critic training seen in the state-of-the-art algorithms (see Figure 3) and constructs an objective function to allow Monte Calro Poliy Gradient (MCPG) methods to operate effectively in an off-policy manner so that useful gradient estimates can be obtained with the least amount of data possible. In particular, as seen in Figure 4, each solution processed by the PG emitter in each iteration undergoes the following steps:
+To achieve this goal, the Monte Carlo Policy Gradient MAP-Elites (MCPG-ME) algorithm is developed. This algorithm removes the global actor-critic training seen in the state-of-the-art algorithms, as depicted in Figure 3, and constructs an objective function. This function allows the Monte Carlo Policy Gradient (MCPG) methods to operate effectively in an off-policy manner, enabling the acquisition of useful gradient estimates with minimal data. Particularly, as shown in Figure 5, each solution processed by the PG emitter in each iteration undergoes the following steps:
 
 <i>i.</i> **Trajectory Sampling:** Randomly sample $$N$$ trajectories from the offspring evaluations of the previous generation.
 
@@ -101,10 +110,10 @@ To achieve this goal, the Monte Carlo Policy Gradient MAP-Elites (MCPG-ME) algor
     </div>
 </div>
 <div class="caption">
-    Figure 4: Pipeline of the PG emitter in MCPG-ME algorithm.
+    Figure 5: Pipeline of the PG emitter in MCPG-ME algorithm.
 </div>
 
-For developement and technical details regarding MCPG-ME please refer to the 'Methodology' section of the [report](/assets/pdf/thesis_report_msc.pdf). The results of MCPG-ME are outlined in the 'Introduction' at the top of this page. For a more comprehensive understanding of the experiments and the implications of the experimental results, please refer to the 'Experiments' section of the [report](/assets/pdf/thesis_report_msc.pdf).
+For developement and technical details regarding MCPG-ME please refer to the 'Methodology' chapter of the [report](/assets/pdf/thesis_report_msc.pdf). The results of MCPG-ME are outlined in the 'Introduction' at the top of this page. For a more comprehensive understanding of the experiments and the implications of the experimental results, please refer to the ‘Experiments’ chapter of the [report](/assets/pdf/thesis_report_msc.pdf).
 
 
 ## Author
