@@ -16,6 +16,7 @@ profile:
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
+selected_projects: true
 ---
 
 I recently completed an MSc in **Artificial Intelligence** at Imperial College London. I am now beginning a PhD program in the Department of Computing at Imperial, which is being funded by the department. My research will focus on **Deep Reinforcement Learning** and **Evolutionary Algorithms**, under the supervision of [Dr Antoine Cully](https://www.imperial.ac.uk/people/a.cully).

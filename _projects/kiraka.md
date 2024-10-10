@@ -8,7 +8,16 @@ category: ML Software Engineering
 giscus_comments: false
 ---
 
-This is the work of my group project in MSc AI at Imperial. For the technical details, please look at the [report](/assets/pdf/kiraka_report.pdf).
+This is the work of my group project in MSc AI at Imperial. For the technical details, please refer to our [report](/assets/pdf/kiraka_report.pdf).
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/user_journey.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Snapshot of User Journey and Website Architecture.
+</div>
 
 ## Project Overview
 
@@ -19,6 +28,10 @@ Kiraka.ai is designed to explore the potential of speed reading and its impact o
 - **DocMode**: See the full text, add a pointer to follow the pace you set, or bold the beginning of words to help you focus.
 - **FlashMode**: Read text in chunks, displayed sequentially to improve focus and speed, with optional real-time eye tracking to adapt to your reading speed. 
 - **Real-Time Adjustments**: Uses [WebGazer](https://webgazer.cs.brown.edu/)'s eye-tracking technology to adjust the WPM (Words Per Minute) dynamically in FlashMode.
+
+## Getting Started
+
+Please visit the kiraka [repository](https://github.com/konstantinosmitsides/kiraka) for a complete guide on how to use our Speed Reading Platform.
 
 ## Reading Modes
 
@@ -57,11 +70,21 @@ FlashMode Adaptive offers three levels of difficulty, each designed to cater to 
 - **Intermediate:** For readers with some experience in dynamic reading environments.
 - **Expert:** For those who seek to challenge their reading capabilities to the limit.
 
-### AI Quiz Generation
+## AI Quiz Generation
 After your reading sessions, AI-generated quizzes designed to test comprehension will be presented. These quizzes are crucial for addressing the trade-offs between speed and comprehension commonly seen with traditional speed reading techniques. Currently being refined for improved question generation, this feature also accommodates ***user-uploaded texts***, reinforcing our commitment to user-centric learning experiences.
 
-### User Analytics
+## User Analytics
 Kiraka.ai provides an analytics page to help users track their reading (average WPM) and comprehension performance (Quiz Score). Displayed through informative graphs, these analytics allow users to reflect on their progress and stay motivated, ideal for those looking to systematically enhance their reading skills.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/user_flow_template.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Diagram overview of the website, showing all the pages and connections.
+</div>
+
 
 
 ## Authors
