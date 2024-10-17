@@ -4,7 +4,7 @@ title: GNByN
 description: "GraphNETbyNET: A novel architecture of Graph Neural Netowrks (GNNs), inspiried by a variety of GNN and NN architectures to generated high-resolution brain connectivity graphs from low-resolution ones." 
 img: assets/img/DGL_high_level_archi.png
 importance: 2
-category: AI Research
+category: RemoveThisToPublish AI Research
 related_publications: true
 ---
 This is the work of my group project in the Deep Graph-based Learning module in MSc AI at Imperial. For full comprehension, please refer to our [report](/assets/pdf/DGL_report.pdf).
