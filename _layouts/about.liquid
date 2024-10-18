@@ -5,7 +5,9 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">
       {% if site.title == 'blank' %}
+        {% comment %}
         <img src="/assets/img/logo_recent.png" alt="Profile Image" class="title-image">
+        {% endcomment %}
         <span class="name">
         <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
         {{ site.last_name }}

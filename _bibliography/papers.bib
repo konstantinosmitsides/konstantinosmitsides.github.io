@@ -436,3 +436,51 @@
   biburl       = {https://dblp.org/rec/journals/corr/abs-1802-09477.bib},
   bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
+
+@misc{oversmoothing,
+      title={A Survey on Oversmoothing in Graph Neural Networks}, 
+      author={T. Konstantin Rusch and Michael M. Bronstein and Siddhartha Mishra},
+      year={2023},
+      eprint={2303.10993},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+
+@article{graphcon,
+title = "Graph-Coupled Oscillator Networks",
+abstract = "We propose Graph-Coupled Oscillator Networks (GraphCON), a novel framework for deep learning on graphs. It is based on discretizations of a second-order system of ordinary differential equations (ODEs), which model a network of nonlinear controlled and damped oscillators, coupled via the adjacency structure of the underlying graph. The flexibility of our framework permits any basic GNN layer (e.g. convolutional or attentional) as the coupling function, from which a multi-layer deep neural network is built up via the dynamics of the proposed ODEs. We relate the oversmoothing problem, commonly encountered in GNNs, to the stability of steady states of the underlying ODE and show that zero-Dirichlet energy steady states are not stable for our proposed ODEs. This demonstrates that the proposed framework mitigates the oversmoothing problem. Moreover, we prove that GraphCON mitigates the exploding and vanishing gradients problem to facilitate training of deep multi-layer GNNs. Finally, we show that our approach offers competitive performance with respect to the state-of-the-art on a variety of graph-based learning tasks.",
+author = "Rusch, {T. Konstantin} and Chamberlain, {Benjamin P.} and James Rowbottom and Siddhartha Mishra and Bronstein, {Michael M.}",
+note = "Publisher Copyright: Copyright {\textcopyright} 2022 by the author(s); 39th International Conference on Machine Learning, ICML 2022 ; Conference date: 17-07-2022 Through 23-07-2022",
+year = "2022",
+language = "אנגלית",
+volume = "162",
+pages = "18888--18909",
+journal = "Proceedings of Machine Learning Research",
+issn = "2640-3498",
+}
+
+@misc{gatv2,
+      title={How Attentive are Graph Attention Networks?}, 
+      author={Shaked Brody and Uri Alon and Eran Yahav},
+      year={2022},
+      eprint={2105.14491},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+
+
+@InProceedings{graphunet,
+  title = 	 {Graph U-Nets},
+  author =       {Gao, Hongyang and Ji, Shuiwang},
+  booktitle = 	 {Proceedings of the 36th International Conference on Machine Learning},
+  pages = 	 {2083--2092},
+  year = 	 {2019},
+  editor = 	 {Chaudhuri, Kamalika and Salakhutdinov, Ruslan},
+  volume = 	 {97},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {09--15 Jun},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v97/gao19a/gao19a.pdf},
+  url = 	 {https://proceedings.mlr.press/v97/gao19a.html},
+  abstract = 	 {We consider the problem of representation learning for graph data. Convolutional neural networks can naturally operate on images, but have significant challenges in dealing with graph data. Given images are special cases of graphs with nodes lie on 2D lattices, graph embedding tasks have a natural correspondence with image pixel-wise prediction tasks such as segmentation. While encoder-decoder architectures like U-Nets have been successfully applied on many image pixel-wise prediction tasks, similar methods are lacking for graph data. This is due to the fact that pooling and up-sampling operations are not natural on graph data. To address these challenges, we propose novel graph pooling (gPool) and unpooling (gUnpool) operations in this work. The gPool layer adaptively selects some nodes to form a smaller graph based on their scalar projection values on a trainable projection vector. We further propose the gUnpool layer as the inverse operation of the gPool layer. The gUnpool layer restores the graph into its original structure using the position information of nodes selected in the corresponding gPool layer. Based on our proposed gPool and gUnpool layers, we develop an encoder-decoder model on graph, known as the graph U-Nets. Our experimental results on node classification and graph classification tasks demonstrate that our methods achieve consistently better performance than previous models.}
+}
