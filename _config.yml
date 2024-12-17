@@ -197,7 +197,6 @@ collections:
   projects:
     output: true
     permalink: /:collection/:title/
-    limit: 3
 
 announcements:
   enabled: true

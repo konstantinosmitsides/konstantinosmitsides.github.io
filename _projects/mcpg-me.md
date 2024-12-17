@@ -33,11 +33,11 @@ Evaluations across various continuous control locomotion tasks demonstrate that 
 
 <div style="display: flex; justify-content: space-around; align-items: center;">
   <div>
-    <img src="/assets/img/jumping_walker.gif" alt="A jumping Walker" style="width: 200px;">
+    <img src="/assets/img/jumping_walker.gif" alt="A jumping Walker" style="width: 200px; height: 155px; object-fit: cover;">
     <p style="text-align: center;">A jumping Walker</p>
   </div>
   <div>
-    <img src="/assets/img/anttrap_omni_vis.gif" alt="Ant going around the trap" style="width: 200px;">
+    <img src="/assets/img/anttrap_omni_vis.gif" alt="Ant going around the trap" style="width: 200px; height: 155px; object-fit: cover;">
     <p style="text-align: center;">Ant going around the trap</p>
   </div>
 </div>
