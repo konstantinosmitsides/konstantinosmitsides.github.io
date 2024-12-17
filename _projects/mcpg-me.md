@@ -30,6 +30,18 @@ Evaluations across various continuous control locomotion tasks demonstrate that 
 
 - **Novel Solutions:** Excels in finding a diverse set of solutions, achieving equal or higher diversity score (coverage) than all competitors in all tasks. 
 
+
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <div>
+    <img src="/assets/img/jumping_walker.gif" alt="A jumping Walker" style="width: 200px;">
+    <p style="text-align: center;">A jumping Walker</p>
+  </div>
+  <div>
+    <img src="/assets/img/anttrap_omni_vis.gif" alt="Ant going around the trap" style="width: 200px;">
+    <p style="text-align: center;">Ant going around the trap</p>
+  </div>
+</div>
+
 ## Author
 - Konstantinos Mitsides
 
