@@ -32,20 +32,19 @@ Evaluations across various continuous control locomotion tasks demonstrate that 
 
 In these tasks, solutions refer to the robot's walking behavior. The **quality** of solutions refers to the effectiveness with which the robot completes a given task, and the **diversity** of solutions denotes the range of different walking styles the robot can successfully employ. See below some interesting solutions:
 <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
-  <div style="flex: 1 0 50%; text-align: center;">
+  <div style="flex: 1 0 33%; text-align: center; padding: 5px;">
     <img src="/assets/img/jumping_walker.gif" alt="A jumping Walker" style="max-width: 200px; height: 155px; object-fit: cover;">
     <p style="text-align: center;">A hopping Walker</p>
   </div>
-  <div style="flex: 1 0 50%; text-align: center;">
-    <img src="/assets/img/walker_normal.gif" alt="Ant going around the trap" style="max-width: 200px; height: 155px; object-fit: cover;">
-    <p style="text-align: center;">A fast Walker</p>
-  </div>
-  <div style="flex: 1 0 100%; text-align: center;">
-    <img src="/assets/img/anttrap_omni_vis.gif" alt="A fast Walker" style="max-width: 200px; height: 155px; object-fit: cover;">
+  <div style="flex: 1 0 33%; text-align: center; padding: 5px;">
+    <img src="/assets/img/anttrap_omni_vis.gif" alt="Ant going around the trap" style="max-width: 200px; height: 155px; object-fit: cover;">
     <p style="text-align: center;">Ant going around the trap</p>
   </div>
+  <div style="flex: 1 0 33%; text-align: center; padding: 5px;">
+    <img src="/assets/img/walker_normal.gif" alt="A fast Walker" style="max-width: 200px; height: 155px; object-fit: cover;">
+    <p style="text-align: center;">A fast Walker</p>
+  </div>
 </div>
-
 For technical details of the method and the official results, please stay tuned. The paper is coming soon!
 
 ## Author
