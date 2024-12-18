@@ -484,3 +484,31 @@ issn = "2640-3498",
   url = 	 {https://proceedings.mlr.press/v97/gao19a.html},
   abstract = 	 {We consider the problem of representation learning for graph data. Convolutional neural networks can naturally operate on images, but have significant challenges in dealing with graph data. Given images are special cases of graphs with nodes lie on 2D lattices, graph embedding tasks have a natural correspondence with image pixel-wise prediction tasks such as segmentation. While encoder-decoder architectures like U-Nets have been successfully applied on many image pixel-wise prediction tasks, similar methods are lacking for graph data. This is due to the fact that pooling and up-sampling operations are not natural on graph data. To address these challenges, we propose novel graph pooling (gPool) and unpooling (gUnpool) operations in this work. The gPool layer adaptively selects some nodes to form a smaller graph based on their scalar projection values on a trainable projection vector. We further propose the gUnpool layer as the inverse operation of the gPool layer. The gUnpool layer restores the graph into its original structure using the position information of nodes selected in the corresponding gPool layer. Based on our proposed gPool and gUnpool layers, we develop an encoder-decoder model on graph, known as the graph U-Nets. Our experimental results on node classification and graph classification tasks demonstrate that our methods achieve consistently better performance than previous models.}
 }
+
+@misc{DCRL,
+      title={Synergizing Quality-Diversity with Descriptor-Conditioned Reinforcement Learning}, 
+      author={Maxence Faldor and Félix Chalumeau and Manon Flageat and Antoine Cully},
+      year={2024},
+      eprint={2401.08632},
+      archivePrefix={arXiv},
+      primaryClass={cs.NE},
+      url={https://arxiv.org/abs/2401.08632}, 
+}
+
+@inproceedings{PGA,
+author = {Nilsson, Olle and Cully, Antoine},
+title = {Policy gradient assisted MAP-Elites},
+year = {2021},
+isbn = {9781450383509},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3449639.3459304},
+doi = {10.1145/3449639.3459304},
+abstract = {Quality-Diversity optimization algorithms such as MAP-Elites, aim to generate collections of both diverse and high-performing solutions to an optimization problem. MAP-Elites has shown promising results in a variety of applications. In particular in evolutionary robotics tasks targeting the generation of behavioral repertoires that highlight the versatility of robots. However, for most robotics applications MAP-Elites is limited to using simple open-loop or low-dimensional controllers. Here we present Policy Gradient Assisted MAP-Elites (PGA-MAP-Elites), a novel algorithm that enables MAP-Elites to efficiently evolve large neural network controllers by introducing a gradient-based variation operator inspired by Deep Reinforcement Learning. This operator leverages gradient estimates obtained from a critic neural network to rapidly find higher-performing solutions and is paired with a traditional genetic variation to maintain a divergent search behavior. The synergy of these operators makes PGA-MAP-Elites an efficient yet powerful algorithm for finding diverse and high-performing behaviors. We evaluate our method on four different tasks for building behavioral repertoires that use deep neural network controllers. The results show that PGA-MAP-Elites significantly improves the quality of the generated repertoires compared to existing methods.},
+booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference},
+pages = {866–875},
+numpages = {10},
+keywords = {quality-diversity, neuroevolution, MAP-Elites},
+location = {Lille, France},
+series = {GECCO '21}
+}

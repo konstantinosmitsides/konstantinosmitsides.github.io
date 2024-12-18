@@ -35,7 +35,7 @@ The LR and HR data are passed into the UpChanger and the DownChanger, respective
     </div>
 </div>
 <div class="caption">
-    High-level architecture and step-level comutational graph. Batchnorm, laynorm and dropout layers are omitted. Learnable parameters (and dimensions) excluding VAEs and standard layers:$$D_{A,t}(d_{t+1} \times d_t), D_{A,t}(d_{t+1} \times d_t), D_{Z,t}(\text{channels} \times d_{t+1}), \beta_{A} (d_{t+1} \times 1), \beta_{Z} (d_{t+1} \times 1), i_t (d_{t+1} \times 1), f_{t} (d_{t+1} \times 1)$$
+    High-level architecture and step-level comutational graph. Batchnorm, laynorm and dropout layers are omitted. Learnable parameters (and dimensions) excluding VAEs and standard layers:\(D_{A,t}(d_{t+1} \times d_t), D_{A,t}(d_{t+1} \times d_t), D_{Z,t}(\text{channels} \times d_{t+1}), \beta_{A} (d_{t+1} \times 1), \beta_{Z} (d_{t+1} \times 1), i_t (d_{t+1} \times 1), f_{t} (d_{t+1} \times 1)\)
 </div>
 
 ## Authors
