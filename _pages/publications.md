@@ -3,9 +3,15 @@ layout: page
 permalink: /publications/
 title: Publications
 description: 
-nav: false
+nav: true
 nav_order: 1
 ---
-# Coming Soon!
+
+<!-- Adds a year section -->
+<div class="publications">
+
+{% bibliography -f papers --query @*[key=mitsides2025scalingpolicygradientqualitydiversity] %}
+
+</div>
 
 

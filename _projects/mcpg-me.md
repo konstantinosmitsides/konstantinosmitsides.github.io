@@ -6,6 +6,7 @@ img: assets/img/high-level_illustration.png
 importance: 1
 category: AI Research
 related_publications: true
+hidden: true
 ---
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
