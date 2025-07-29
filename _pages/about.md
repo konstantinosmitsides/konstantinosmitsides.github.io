@@ -19,7 +19,7 @@ social: true # includes social icons at the bottom of the page
 selected_projects: true
 ---
 
-I am a PhD student in AI at [Imperial College London](https://www.imperial.ac.uk/) in the [Adaptive & Intelligent Robotics Lab](https://www.imperial.ac.uk/adaptive-intelligent-robotics), supervised by [Dr Antoine Cully](https://www.imperial.ac.uk/people/a.cully). My research focuses on developing learning algorithms that aim to create self-improving generally capable agents in "open-ended" environments.
+I am a PhD student in AI at [Imperial College London](https://www.imperial.ac.uk/) in the [Adaptive & Intelligent Robotics Lab](https://www.imperial.ac.uk/adaptive-intelligent-robotics), supervised by [Dr Antoine Cully](https://www.imperial.ac.uk/people/a.cully). My research focuses on developing learning algorithms to enable self-improving, generally capable agents in "open-ended" environments, advancing the field towards more autonomous and adaptive AI systems.
 
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
