@@ -17,6 +17,16 @@ li,
 span,
 strong {
   color: var(--global-text-color);
+  font-family: 'Lato', sans-serif;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+
+  a {
+    font-weight: inherit;
+  }
 }
 
 hr {
@@ -24,6 +34,7 @@ hr {
 }
 
 table {
+
   td,
   th {
     font-size: 1rem;
@@ -51,6 +62,7 @@ table.table a {
 
 .table-dark {
   background-color: transparent;
+
   &.table-bordered {
     border: 1px solid var(--global-divider-color) !important;
   }
@@ -135,10 +147,11 @@ blockquote {
 // Checklist
 
 ul.task-list {
-  list-style-type: none; /* Remove bullets from all levels */
+  list-style-type: none;
+  /* Remove bullets from all levels */
 }
 
-ul.task-list > li ul {
+ul.task-list>li ul {
   /* Nested lists within .task-list */
   padding-inline-start: 1.5rem;
 }
@@ -191,6 +204,49 @@ ul.task-list input[type="checkbox"] {
 }
 
 // Profile
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+.about-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  .profile-col {
+    flex: 0 0 30%;
+    max-width: 30%;
+
+    .more-info {
+      margin-bottom: 5px;
+      margin-top: 5px;
+      font-family: monospace;
+
+      p {
+        display: inline-block;
+        margin: 0;
+      }
+    }
+  }
+
+  .bio-col {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-section {
+    flex-direction: column;
+
+    .profile-col {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
 
 .profile {
   width: 100%;
@@ -295,7 +351,7 @@ ul.task-list input[type="checkbox"] {
     }
   }
 
-  .navbar-nav .nav-item.active > .nav-link {
+  .navbar-nav .nav-item.active>.nav-link {
     background-color: inherit;
     font-weight: bolder;
     color: var(--global-theme-color);
@@ -418,7 +474,7 @@ ul.task-list input[type="checkbox"] {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.wechat-modal > img {
+.wechat-modal>img {
   display: block;
   position: relative;
   top: 50%;
@@ -429,7 +485,7 @@ ul.task-list input[type="checkbox"] {
 }
 
 @media only screen and (max-width: 400px) {
-  .wechat-modal > img {
+  .wechat-modal>img {
     width: 100%;
   }
 }
@@ -689,16 +745,27 @@ footer.sticky-bottom {
     margin-top: 0;
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 3rem;
+      font-size: 1.05rem;
 
       .preview {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+
         img {
-          width: 100%;
-          max-width: 100px;
+          width: auto;
+          max-width: 100%;
+          min-width: 140px;
+          /* Ensure it's not too small */
+          max-height: 300px;
+          /* Ensure it's not too big */
           height: auto;
-          margin-right: 1rem;
-          float: left;
+          object-fit: contain;
+          margin-right: 0;
+          float: none;
         }
       }
 
@@ -726,7 +793,10 @@ footer.sticky-bottom {
       }
 
       .title {
-        font-weight: bolder;
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-bottom: 0.35rem;
+        color: var(--global-title-color);
       }
 
       .author {
@@ -739,12 +809,13 @@ footer.sticky-bottom {
           }
         }
 
-        > em {
-          border-bottom: 1px solid;
+        >em {
+          border-bottom: none;
           font-style: normal;
+          font-weight: 700;
         }
 
-        > span.more-authors {
+        >span.more-authors {
           color: var(--global-text-color-light);
           border-bottom: 1px dashed var(--global-text-color-light);
           cursor: pointer;
@@ -760,17 +831,18 @@ footer.sticky-bottom {
         a.btn {
           color: var(--global-text-color);
           border: 1px solid var(--global-text-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
+          padding: 0.3rem 0.55rem;
           margin-left: 0;
+          margin-right: 0.25rem;
+          border-radius: 10px;
+          font-size: 0.95rem;
 
           &:hover {
             color: var(--global-theme-color);
             border-color: var(--global-theme-color);
           }
         }
+
         a.award.btn {
           border-color: var(--global-highlight-color);
         }
@@ -778,6 +850,7 @@ footer.sticky-bottom {
 
       .badges {
         padding-bottom: 0.5rem;
+
         span {
           display: inline-block;
           color: $black-color;
@@ -831,9 +904,11 @@ footer.sticky-bottom {
         border-color: var(--global-text-color);
       }
     }
+
     div.award.hidden {
       border: dashed 1px var(--global-bg-color);
     }
+
     div.award.hidden.open {
       border-color: var(--global-highlight-color);
     }
@@ -1033,11 +1108,11 @@ progress::-moz-progress-bar {
 nav[data-toggle="toc"] {
   top: 5rem;
 
-  .nav .nav > li > a {
+  .nav .nav>li>a {
     font-size: 0.75rem;
   }
 
-  .nav > li > a {
+  .nav>li>a {
     color: var(--global-text-color);
     font-size: 0.75rem;
 
@@ -1061,6 +1136,7 @@ nav[data-toggle="toc"] {
 
 /* small screens */
 @media (max-width: 576px) {
+
   /* override stickyness so that the navigation does not follow scrolling */
   nav[data-toggle="toc"] {
     visibility: hidden;
@@ -1133,7 +1209,7 @@ swiper-container {
     border-bottom: 2px solid var(--global-text-color);
   }
 
-  .ps-algorithm.with-caption > .ps-line:first-child {
+  .ps-algorithm.with-caption>.ps-line:first-child {
     border-bottom: 2px solid var(--global-text-color);
   }
 }
@@ -1255,6 +1331,7 @@ ninja-keys::part(ninja-input-wrapper) {
 }
 
 @media (max-width: 575px) {
+
   .newsletter-form-input,
   .newsletter-form-button,
   .newsletter-loading-button,
@@ -1262,6 +1339,7 @@ ninja-keys::part(ninja-input-wrapper) {
   .newsletter-error {
     font-size: 16px !important;
   }
+
   .newsletter-form-container {
     margin-right: 20px;
     margin-left: 20px;
@@ -1284,6 +1362,7 @@ ninja-keys::part(ninja-input-wrapper) {
 }
 
 .bs-popover-top {
+
   // arrow fill color
   .arrow::after {
     border-top-color: var(--global-bg-color);
@@ -1296,6 +1375,7 @@ ninja-keys::part(ninja-input-wrapper) {
 }
 
 .bs-popover-bottom {
+
   // arrow fill color
   .arrow::after {
     border-bottom-color: var(--global-bg-color);

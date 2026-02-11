@@ -2,7 +2,7 @@
 ---
 <div class="row">
   {% if site.enable_publication_thumbnails %}
-    <div class="col col-sm-2 abbr">
+    <div class="col col-sm-4 abbr">
       {%- if entry.abbr -%}
         {%- if site.data.venues[entry.abbr] -%}
           {% assign venue_style = null %}
@@ -38,6 +38,7 @@
             class="preview z-depth-1 rounded"
             zoomable=true
             alt=entry.preview
+
           %}
         {% endif %}
       {% endif %}
@@ -48,15 +49,7 @@
   <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
     <!-- Title -->
     <div class="title">
-      {%- if entry.doi -%}
-        <a href="https://doi.org/{{ entry.doi }}" target="_blank" rel="noopener noreferrer">{{ entry.title }}</a>
-      {%- elsif entry.url -%}
-        <a href="{{ entry.url }}" target="_blank" rel="noopener noreferrer">{{ entry.title }}</a>
-      {%- elsif entry.html -%}
-        <a href="{{ entry.html }}" target="_blank" rel="noopener noreferrer">{{ entry.title }}</a>
-      {%- else -%}
-        {{ entry.title }}
-      {%- endif -%}
+      {{ entry.title }}
     </div>
     <!-- Author -->
     <div class="author">
@@ -194,15 +187,22 @@
 
     <!-- Links/Buttons -->
     <div class="links">
-      {% if entry.pdf %}
-        {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
-        {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
-        {% endif %}
+      {% if entry.url %}
+        <a href="{{ entry.url }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines"></i> Paper</a>
+      {% elsif entry.doi %}
+        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines"></i> Paper</a>
+      {% endif %}
+      {% if entry.code %}
+        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Code</a>
+      {% endif %}
+      {% if entry.website %}
+        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe"></i> Website</a>
       {% endif %}
       {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+        <a class="bibtex btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-book"></i> Bib</a>
+      {% endif %}
+      {% if entry.arxiv %}
+        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button"><i class="ai ai-arxiv"></i> arXiv</a>
       {% endif %}
       {% if entry.award %}
         <a class="award btn btn-sm z-depth-0" role="button">
@@ -210,10 +210,7 @@
         </a>
       {% endif %}
       {% if entry.abstract %}
-        <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-      {% endif %}
-      {% if entry.arxiv %}
-        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
+        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-align-left"></i> Abstract</a>
       {% endif %}
     </div>
     {% if site.enable_publication_badges %}
