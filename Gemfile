@@ -30,3 +30,5 @@ group :other_plugins do
 end
 
 gem "observer", "~> 0.1.2"
+
+gem "ostruct", "~> 0.6.3"
