@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dreaming in Code — Run 3</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { overflow: hidden; }
+  </style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+  <span id="themeIcon">&#9789;</span>
+</button>
+
+<div class="run-header">
+  <a href="index.html" aria-label="Back to main page">&larr;</a>
+  <h1>Dreaming in Code &mdash; Run 3</h1>
+</div>
+
+<iframe class="run-iframe" src="../assets/dreaming-in-code/level_trees/run_3_archive.html" title="Interactive archive for Run 3"></iframe>
+
+<script>
+(function() {
+  const toggle = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  const html = document.documentElement;
+
+  function getPreferred() {
+    const stored = localStorage.getItem('theme');
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    icon.textContent = theme === 'dark' ? '☀' : '☽';
+  }
+
+  applyTheme(getPreferred());
+
+  toggle.addEventListener('click', function() {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+  });
+})();
+</script>
+
+</body>
+</html>

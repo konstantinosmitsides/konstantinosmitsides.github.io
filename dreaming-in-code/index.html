@@ -1,26 +1,312 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <script type="text/javascript">
-        window.location.href = "https://sites.google.com/view/dreaming-in-code-public";
-    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dreaming in Code — Curriculum Learning in Open-Ended Worlds | ICML 2026</title>
+  <meta name="description" content="Dreaming in Code (DiCode): Foundation models synthesize executable environment code to scaffold curriculum learning in open-ended worlds. 17% improvement over baselines on Craftax. Accepted at ICML 2026.">
+  <meta name="keywords" content="Dreaming in Code, DiCode, curriculum learning, open-ended learning, reinforcement learning, unsupervised environment design, Craftax, ICML 2026, foundation models">
+  <meta name="author" content="Konstantinos Mitsides, Maxence Faldor, Antoine Cully">
+  <link rel="canonical" href="https://konstantinosmitsides.github.io/dreaming-in-code/">
 
-    <meta http-equiv="refresh" content="0; url=https://sites.google.com/view/dreaming-in-code-public" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dreaming in Code for Curriculum Learning in Open-Ended Worlds">
+  <meta property="og:description" content="Foundation models dream executable environments to teach RL agents long-horizon skills. 17% improvement over baselines. Accepted at ICML 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://konstantinosmitsides.github.io/dreaming-in-code/">
+  <meta property="og:image" content="https://konstantinosmitsides.github.io/assets/dreaming-in-code/figures/method_fig.svg">
 
-    <style type="text/css">
-        body {
-            display: none !important;
-        }
-    </style>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dreaming in Code for Curriculum Learning in Open-Ended Worlds">
+  <meta name="twitter:description" content="Foundation models dream executable environments to teach RL agents long-horizon skills. Accepted at ICML 2026.">
+  <meta name="twitter:image" content="https://konstantinosmitsides.github.io/assets/dreaming-in-code/figures/method_fig.svg">
+  <meta name="twitter:creator" content="@k_mitsides">
 
-    <title>Redirecting...</title>
-    <link rel="canonical" href="https://sites.google.com/view/dreaming-in-code-public">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <p>Redirecting to <a href="https://sites.google.com/view/dreaming-in-code-public">Project Page</a>.</p>
-</body>
 
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+  <span id="themeIcon">&#9789;</span>
+</button>
+
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <h1>Dreaming in Code for Curriculum Learning in Open-Ended Worlds</h1>
+    <p class="authors"><a href="https://konstantinosmitsides.github.io/" target="_blank" rel="noopener">Konstantinos Mitsides</a> &middot; <a href="https://github.com/maxencefaldor" target="_blank" rel="noopener">Maxence Faldor</a> &middot; <a href="https://profiles.imperial.ac.uk/a.cully" target="_blank" rel="noopener">Antoine Cully</a></p>
+    <p class="affiliation">Imperial College London</p>
+    <a href="https://icml.cc/virtual/2026/poster/62759" class="badge" target="_blank" rel="noopener">Accepted at ICML 2026</a>
+    <div class="header-buttons">
+      <a href="https://arxiv.org/abs/2602.08194" class="btn btn-primary" target="_blank" rel="noopener">
+        &#128196; Paper
+      </a>
+      <a href="https://github.com/konstantinosmitsides/dreaming-in-code" class="btn btn-secondary" target="_blank" rel="noopener">
+        &#128187; Code
+      </a>
+      <a href="https://x.com/k_mitsides/status/2024517868616892726" class="btn btn-secondary" target="_blank" rel="noopener">
+        &#120143; Post
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Video -->
+  <div class="video-container">
+    <video autoplay muted loop playsinline controls>
+      <source src="../assets/dreaming-in-code/DiCode.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Abstract -->
+  <section id="abstract" class="narrow-section">
+    <h2>Abstract</h2>
+    <p>
+      Open-ended learning frames intelligence as emerging from continual interaction with an ever-expanding space of environments. While recent advances have utilized foundation models to programmatically generate diverse environments, these approaches often focus on discovering isolated behaviors rather than orchestrating sustained progression. In complex open-ended worlds, the large combinatorial space of possible challenges makes it difficult for agents to discover sequences of experiences that remain consistently learnable. To address this, we propose <strong>Dreaming in Code (DiCode)</strong>, a framework in which foundation models synthesize executable environment code to scaffold learning toward increasing competence. In DiCode, "dreaming" takes the form of materializing code-level variations of the world. We instantiate DiCode in Craftax, a challenging open-ended benchmark characterized by rich mechanics and long-horizon progression. Empirically, DiCode enables agents to acquire long-horizon skills, achieving a <strong>17% improvement</strong> in mean return over the strongest baseline and non-zero success on late-game combat tasks where prior methods fail. Our results suggest that code-level environment design provides a practical mechanism for curriculum control, enabling the construction of intermediate environments that bridge competence gaps in open-ended worlds.
+    </p>
+  </section>
+
+  <!-- Method -->
+  <section id="method">
+    <h2>Dreaming in Code Loop</h2>
+
+    <div class="figure">
+      <img src="../assets/dreaming-in-code/figures/method_fig.svg" alt="Overview of the Dreaming in Code framework showing the generation cycle and training loop.">
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Curating the Lineage</h3>
+        <p>
+          DiCode maintains a structured archive of all generated levels. To ensure the agent develops a broad repertoire of skills, the selection mechanism explicitly promotes lineage diversity, prioritizing unexplored branches over already-mastered paths.
+        </p>
+        <p>
+          Using a learnability score, the selector identifies "parent" levels that are currently in the agent's Zone of Proximal Development. This ensures the curriculum always branches off from the frontier of the agent's current capabilities.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Generation Cycle</h3>
+        <p>
+          To scaffold progress toward the target environment, DiCode employs a process we term "dreaming": utilizing a foundation model to conceptualize and imagine the next optimal training scenario, tailored to the agent's current skill frontier, and materializing it into executable level.
+        </p>
+        <p>
+          Unlike standard UED methods that only randomly rearrange map tiles, DiCode programmatically specifies the whole environment logic. It algorithmically specifies the world topology, redefines interaction rules and progression logic, and defines specific objectives for each level.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Training</h3>
+        <p>Training occurs on a stratified batch. Every update mixes experience from three sources:</p>
+        <ul>
+          <li><strong>20% Target Environment:</strong> To ensure grounded progress on the real task.</li>
+          <li><strong>Newly Generated Levels:</strong> To introduce the next logical challenges.</li>
+          <li><strong>Archived Levels:</strong> Replayed via PLR to prevent forgetting.</li>
+        </ul>
+        <p>Before training, every generated level undergoes a compilation check to filter out invalid code.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="results">
+    <h2>Key Results: Unlocking the Impossible</h2>
+
+    <div class="figure">
+      <img src="../assets/dreaming-in-code/figures/return_learning_curve.svg" alt="Learning curve showing DiCode outperforming all baselines throughout training.">
+      <figcaption>Mean episode return on the held-out test set (1024 unseen procedurally generated worlds) throughout training. Shaded regions indicate standard error across 8 seeds.</figcaption>
+    </div>
+
+    <p>
+      DiCode establishes a statistically significant lead over the best-performing baseline early in training and maintains this dominance throughout, achieving a final mean return of <strong>48.55</strong> vs. <strong>41.59</strong> for the strongest baseline &mdash; a relative improvement of ~17%.
+    </p>
+
+    <div class="figure">
+      <img src="../assets/dreaming-in-code/figures/ach_fig.svg" alt="Achievement breakdown showing DiCode's success rates on various tasks compared to baselines.">
+      <figcaption>Final success rates on selected achievements, ordered by hierarchical depth. DiCode consistently outperforms all baselines, with the gap widening on late-game objectives.</figcaption>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Instrumental Competence (The Setup)</h3>
+        <p>
+          Baselines struggle to prepare for danger. DiCode teaches the agent to "gear up" first, achieving <strong>47% success on Iron Armour</strong> (vs. 15% for the strongest baseline). This defensive preparation is a crucial prerequisite for survival.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Deep Exploration (The Journey)</h3>
+        <p>
+          Because agents are better equipped, they survive the transition to harder floors significantly more often. DiCode agents reach the <strong>Gnomish Mines (Floor 2) in 32% of episodes</strong>, compared to just 9% for the strongest baseline.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Solving the Intractable (The Result)</h3>
+        <p>
+          Most critically, "dreaming" specific combat scenarios unlocks tasks that remain effectively impossible for standard RL and UED methods. While baseline performance collapses to <strong>0%</strong> on the Gnome Warrior and Gnome Archer, DiCode achieves <strong>15% and 11% success</strong> respectively, demonstrating the acquisition of complex, long-horizon combat skills.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum Visualization -->
+  <section id="curriculum">
+    <h2>Visualizing the Curriculum</h2>
+
+    <div class="figure">
+      <img src="../assets/dreaming-in-code/figures/curriculum.png" alt="Visualization of the DiCode curriculum showing the archive graph, example levels, and the stable success rate over time.">
+    </div>
+
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <h3>Global Evolution</h3>
+        <p>
+          Early levels (e.g., Level 112) act as "training wheels," providing pre-built workstations and free resources to bypass tedious prerequisites. As the agent improves, the model removes this help, introducing higher mob pressure (Level 287) and eventually forcing the agent to descend into the Gnomish mines (Level 532) &ndash; a deep exploration bottleneck rarely reached by standard agents.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Local Mutation</h3>
+        <p>
+          The inset (112 &rarr; 143) illustrates a specific pedagogical behavior: Scaffolding Removal. Upon detecting high competence, the FM edits the Python code to strip away the free resources while expanding the objective. This forces the agent to learn how to gather and craft on its own.
+        </p>
+      </div>
+    </div>
+
+    <div class="card-centered">
+      <div class="card">
+        <h3>The Goldilocks Zone</h3>
+        <p>
+          This adaptive pressure keeps the agent in the "Zone of Proximal Development." Throughout the entire run, the average success rate on the training batch remains stable at ~0.5, ensuring the challenge is always perfectly matched to the agent's current capabilities &ndash; neither too boring nor too frustrating.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablation -->
+  <section id="ablation">
+    <h2>What Drives DiCode?</h2>
+    <p>
+      We ablate DiCode along four design axes to identify what makes it work. Each variant isolates a single component while keeping everything else fixed.
+    </p>
+
+    <div class="table-container">
+      <table class="ablation-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Mean Return</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DiCode (Ours)</td>
+            <td><strong>48.55 &pm; 0.49</strong></td>
+          </tr>
+          <tr>
+            <td>Random Parent Sampling</td>
+            <td>46.44 &pm; 0.41</td>
+          </tr>
+          <tr>
+            <td>Qwen80B</td>
+            <td>45.88 &pm; 0.40</td>
+          </tr>
+          <tr>
+            <td>Qwen30B</td>
+            <td>44.38 &pm; 0.66</td>
+          </tr>
+          <tr>
+            <td>Goal Only</td>
+            <td>42.82 &pm; 0.39</td>
+          </tr>
+          <tr>
+            <td>Open-Loop (DiCode-OL)</td>
+            <td>41.12 &pm; 0.77</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Random Parent Sampling</strong> — Picking parents at random still helps early on, but late-game combat success collapses to near-zero. The model must build on the <em>right</em> stepping stone.</p>
+    <p><strong>Goal Only</strong> — Restricting the model to selecting goals without reshaping environments drops performance to baseline levels. The ability to scaffold initial states and mechanics is the primary driver.</p>
+    <p><strong>FM Capability (235B → 80B → 30B)</strong> — Curriculum quality scales directly with model reasoning capability. Stronger models generate better stepping stones.</p>
+    <p><strong>Open-Loop</strong> — Removing the agent's performance feedback entirely eliminates all gains. DiCode requires closed-loop grounding to steer generation toward the evolving learnability frontier.</p>
+  </section>
+
+  <!-- Interactive Runs -->
+  <section id="runs">
+    <h2>Interactive Curriculum Archives</h2>
+    <p>
+      We provide complete, interactive HTML archives for 5 independent training runs. These allow you to inspect the full evolutionary history of the curriculum, including the exact level description, foundation model reasoning, Python code, and agent performance for every single generated level.
+    </p>
+    <p>Select a run below to launch the interactive archive:</p>
+    <div class="run-grid">
+      <a href="run1.html" class="run-btn">Run 1</a>
+      <a href="run2.html" class="run-btn">Run 2</a>
+      <a href="run3.html" class="run-btn">Run 3</a>
+      <a href="run4.html" class="run-btn">Run 4</a>
+      <a href="run5.html" class="run-btn">Run 5</a>
+    </div>
+  </section>
+
+  <!-- Citation -->
+  <section id="citation">
+    <h2>Citation</h2>
+    <div class="citation-block">
+      <button class="copy-btn" id="copyBtn">Copy</button>
+      <pre id="bibtex">@misc{mitsides2026dreamingcodecurriculumlearning,
+  title={Dreaming in Code for Curriculum Learning in Open-Ended Worlds},
+  author={Konstantinos Mitsides and Maxence Faldor and Antoine Cully},
+  year={2026},
+  eprint={2602.08194},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2602.08194}
+}</pre>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    Dreaming in Code &middot; ICML 2026
+  </div>
+</footer>
+
+<script>
+(function() {
+  const toggle = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  const html = document.documentElement;
+
+  function getPreferred() {
+    const stored = localStorage.getItem('theme');
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    icon.textContent = theme === 'dark' ? '☀' : '☽';
+  }
+
+  applyTheme(getPreferred());
+
+  toggle.addEventListener('click', function() {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+  });
+
+  // Copy citation
+  document.getElementById('copyBtn').addEventListener('click', function() {
+    const text = document.getElementById('bibtex').textContent;
+    navigator.clipboard.writeText(text).then(function() {
+      document.getElementById('copyBtn').textContent = 'Copied!';
+      setTimeout(function() { document.getElementById('copyBtn').textContent = 'Copy'; }, 2000);
+    });
+  });
+})();
+</script>
+
+</body>
 </html>
