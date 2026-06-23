@@ -14,7 +14,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a PhD student in AI at [Imperial College London](https://www.imperial.ac.uk/) in the [Adaptive & Intelligent Robotics Lab](https://www.imperial.ac.uk/adaptive-intelligent-robotics), supervised by [Prof Antoine Cully](https://www.imperial.ac.uk/people/a.cully). I hold an MSc in AI from Imperial College London and a BSc in Mathematics from [UCL](https://www.ucl.ac.uk/). My research focuses on scalable exploration and adaptive learning for open-ended discovery in artificial intelligence.
+I am a PhD student in AI at [Imperial College London](https://www.imperial.ac.uk/), working in the [British Open-Ended Learning & Discovery Lab](https://bold-lab.ai/) (BOLD) under the supervision of [Prof Antoine Cully](https://www.imperial.ac.uk/people/a.cully). I hold an MSc in AI from Imperial and a BSc in Mathematics from [UCL](https://www.ucl.ac.uk/). My research focuses on scalable exploration and adaptive learning for open-ended discovery in artificial intelligence.
 
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
