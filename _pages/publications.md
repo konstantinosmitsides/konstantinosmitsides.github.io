@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: 
+description:
 nav: true
 nav_order: 1
 ---
@@ -15,5 +15,3 @@ nav_order: 1
 {% bibliography -f papers --query @*[key=mitsides2025scaling] %}
 
 </div>
-
-

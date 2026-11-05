@@ -38,7 +38,6 @@
             class="preview z-depth-1 rounded"
             zoomable=true
             alt=entry.preview
-
           %}
         {% endif %}
       {% endif %}
@@ -188,15 +187,23 @@
     <!-- Links/Buttons -->
     <div class="links">
       {% if entry.url %}
-        <a href="{{ entry.url }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines"></i> Paper</a>
+        <a href="{{ entry.url }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+          ><i class="fa-solid fa-file-lines"></i> Paper</a
+        >
       {% elsif entry.doi %}
-        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines"></i> Paper</a>
+        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+          ><i class="fa-solid fa-file-lines"></i> Paper</a
+        >
       {% endif %}
       {% if entry.code %}
-        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Code</a>
+        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+          ><i class="fa-brands fa-github"></i> Code</a
+        >
       {% endif %}
       {% if entry.website %}
-        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe"></i> Website</a>
+        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+          ><i class="fa-solid fa-globe"></i> Website</a
+        >
       {% endif %}
       {% if entry.bibtex_show %}
         <a class="bibtex btn btn-sm z-depth-0" role="button"><i class="fa-solid fa-book"></i> Bib</a>

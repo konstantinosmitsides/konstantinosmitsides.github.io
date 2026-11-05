@@ -1,16 +1,27 @@
 ---
 layout: default
 ---
+{% assign cv_version = site.time | date: '%s' %}
+{% if page.cv_pdf %}
+  {% assign cv_url = page.cv_pdf | prepend: 'assets/pdf/' | relative_url | append: '?v=' | append: cv_version %}
+{% endif %}
 
 <div class="post">
-
   <header class="post-header">
-    <h1 class="post-title">CV {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fa-solid fa-file-pdf"></i></a>{% endif %}</h1>
-      {% if page.description %}<p class="post-description">{{ page.description }}</p>{% endif %}
+    <h1 class="post-title">
+      CV
+      {% if page.cv_pdf %}
+        <a href="{{ cv_url }}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fa-solid fa-file-pdf"></i></a>
+      {% endif %}
+    </h1>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
   </header>
 
-  <div class="post">
-
-  	<object data="../assets/pdf/CV_PhD.pdf#pagemode=none" width="750" height="1000" type='application/pdf'></object>
-
-  </div>
+  {% if page.cv_pdf %}
+    <div class="post">
+      <object data="{{ cv_url }}#pagemode=none" width="750" height="1000" type="application/pdf"></object>
+    </div>
+  {% endif %}
+</div>

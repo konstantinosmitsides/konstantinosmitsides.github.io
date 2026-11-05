@@ -21,12 +21,12 @@ This is the work of my group project in MSc AI at Imperial. For the technical de
 
 ## Project Overview
 
-Kiraka.ai is designed to explore the potential of speed reading and its impact on comprehension, pushing the boundaries of how information is absorbed. Our tools dynamically adjust to your reading pace and style, challenging your limits and enhancing comprehension through two primary modes: ***DocMode*** and ***FlashMode***.
+Kiraka.ai is designed to explore the potential of speed reading and its impact on comprehension, pushing the boundaries of how information is absorbed. Our tools dynamically adjust to your reading pace and style, challenging your limits and enhancing comprehension through two primary modes: **_DocMode_** and **_FlashMode_**.
 
 ## Key Features
 
 - **DocMode**: See the full text, add a pointer to follow the pace you set, or bold the beginning of words to help you focus.
-- **FlashMode**: Read text in chunks, displayed sequentially to improve focus and speed, with optional real-time eye tracking to adapt to your reading speed. 
+- **FlashMode**: Read text in chunks, displayed sequentially to improve focus and speed, with optional real-time eye tracking to adapt to your reading speed.
 - **Real-Time Adjustments**: Uses [WebGazer](https://webgazer.cs.brown.edu/)'s eye-tracking technology to adjust the WPM (Words Per Minute) dynamically in FlashMode.
 
 ## Getting Started
@@ -35,21 +35,23 @@ Please visit the kiraka [repository](https://github.com/konstantinosmitsides/kir
 
 ## Reading Modes
 
-*It is worth noting that each reading mode described below dynamically adjusts the starting reading speed, expressed in Words Per Minute (WPM), based on the user's previous performance within that specific mode.*
+_It is worth noting that each reading mode described below dynamically adjusts the starting reading speed, expressed in Words Per Minute (WPM), based on the user's previous performance within that specific mode._
 
 ### DocMode
+
 In DocMode, you have the freedom to see the whole text and read it at your own pace. We also have some extra features you may find useful. These are controlled via the control panel above the text.
 
 Features include:
+
 - **Pointer:** Enhance your reading with a karaoke-style pointer. Customise the pointer by adjusting its length and colour for optimal tracking, and set its speed to match your preferred reading pace WPM.
 - **HyperBold:** Bold the beginning of words to create artificial fixation points with varying degrees. This feature helps in improving reading speed by guiding your visual focus.
 - **Others:**
-    - **Dark Mode:** Switch to Dark Mode for a reading experience in low-light conditions.
-    - **Focused Reading:** Choose to only display the pointer, hiding the rest of the text. This helps minimise regression (unnecessary re-reading), enhancing concentration.
-    - **Customisation:** Freely adjust the font size to suit your visual preference, ensuring comfort and readability.
-
+  - **Dark Mode:** Switch to Dark Mode for a reading experience in low-light conditions.
+  - **Focused Reading:** Choose to only display the pointer, hiding the rest of the text. This helps minimise regression (unnecessary re-reading), enhancing concentration.
+  - **Customisation:** Freely adjust the font size to suit your visual preference, ensuring comfort and readability.
 
 ### FlashMode
+
 Explore two configurations: **Static** and **Adaptive**.
 
 - **Static**: Chunks of text appear in brief, rapid bursts or "flashes". Manually adjust speed with arrow keys. Pause, start, or restart at any time.
@@ -71,9 +73,11 @@ FlashMode Adaptive offers three levels of difficulty, each designed to cater to 
 - **Expert:** For those who seek to challenge their reading capabilities to the limit.
 
 ## AI Quiz Generation
-After your reading sessions, AI-generated quizzes designed to test comprehension will be presented. These quizzes are crucial for addressing the trade-offs between speed and comprehension commonly seen with traditional speed reading techniques. Currently being refined for improved question generation, this feature also accommodates ***user-uploaded texts***, reinforcing our commitment to user-centric learning experiences.
+
+After your reading sessions, AI-generated quizzes designed to test comprehension will be presented. These quizzes are crucial for addressing the trade-offs between speed and comprehension commonly seen with traditional speed reading techniques. Currently being refined for improved question generation, this feature also accommodates **_user-uploaded texts_**, reinforcing our commitment to user-centric learning experiences.
 
 ## User Analytics
+
 Kiraka.ai provides an analytics page to help users track their reading (average WPM) and comprehension performance (Quiz Score). Displayed through informative graphs, these analytics allow users to reflect on their progress and stay motivated, ideal for those looking to systematically enhance their reading skills.
 
 <div class="row">
@@ -85,12 +89,11 @@ Kiraka.ai provides an analytics page to help users track their reading (average 
     Diagram overview of the website, showing all the pages and connections.
 </div>
 
-
-
 ## Authors
-- *Konstantinos Mitsides* **(konstantinos.mistides23@imperial.ac.uk)**
-- *Fadi Zahar* **(fadi.zahar23@imperial.ac.uk)**
-- *Kyoya Higashino* **(kyoya.higashino23@imperial.ac.uk)**
-- *Matis Bodaghi* **(matis.bodaghi23@imperial.ac.uk)**
-- *Jack Hau* **(jack.hau23@imperial.ac.uk)**
-- *Evangelos Georgiadis* **(evangelos.geordiadis23@imperial.ac.uk)**
+
+- _Konstantinos Mitsides_ **(konstantinos.mistides23@imperial.ac.uk)**
+- _Fadi Zahar_ **(fadi.zahar23@imperial.ac.uk)**
+- _Kyoya Higashino_ **(kyoya.higashino23@imperial.ac.uk)**
+- _Matis Bodaghi_ **(matis.bodaghi23@imperial.ac.uk)**
+- _Jack Hau_ **(jack.hau23@imperial.ac.uk)**
+- _Evangelos Georgiadis_ **(evangelos.geordiadis23@imperial.ac.uk)**

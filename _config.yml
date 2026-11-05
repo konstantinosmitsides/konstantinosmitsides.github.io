@@ -4,7 +4,7 @@
 
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Konstantinos # the website title (if blank, full name will be used instead)
-middle_name: 
+middle_name:
 last_name: Mitsides
 email: k.mitsides@cytanet.com.cy
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
@@ -94,7 +94,7 @@ pinterest_id: # your pinterest id
 publons_id: # your ID on Publons
 quora_username: # your Quora username
 research_gate_profile: # your profile on ResearchGate
-scholar_userid: wGBxqc8AAAAJ&hl=en  # your Google Scholar ID
+scholar_userid: wGBxqc8AAAAJ&hl=en # your Google Scholar ID
 scopus_id: # your profile on Scopus
 semanticscholar_id: # your Semantic Scholar ID
 spotify_id: # your spotify id
@@ -111,7 +111,7 @@ youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
 # contact_note: >
-  #You can even add a little note about which of these is the best way to reach you.
+#You can even add a little note about which of these is the best way to reach you.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -168,20 +168,20 @@ disqus_shortname: al-folio # put your disqus shortname
 # you can display them in your blog by adding a link to the RSS feed.
 external_sources:
   #- name: medium.com
-    #rss_url: https://medium.com/@al-folio/feed
+  #rss_url: https://medium.com/@al-folio/feed
   #- name: Google Blog
-    #posts:
-      #- url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
-        #published_date: 2024-05-14
+  #posts:
+  #- url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
+  #published_date: 2024-05-14
 
 # -----------------------------------------------------------------------------
 # Newsletter
 # -----------------------------------------------------------------------------
 
 #newsletter:
-  #enabled: false
-  #endpoint: # your loops endpoint (e.g., https://app.loops.so/api/newsletter-form/YOUR-ENDPOINT)
-  # https://loops.so/docs/forms/custom-form
+#enabled: false
+#endpoint: # your loops endpoint (e.g., https://app.loops.so/api/newsletter-form/YOUR-ENDPOINT)
+# https://loops.so/docs/forms/custom-form
 
 # -----------------------------------------------------------------------------
 # Collections
